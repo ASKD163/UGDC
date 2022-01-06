@@ -6,68 +6,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/AB_FireGolem.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/BS1D_Walking_Run.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Aggro.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Attack_Ball_Exit.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Attack_Melee.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Attack_MeleeB.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Attack_MeleeC.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Ball_Charge.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Ball_Charge_SuperFast.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Ball_Enter_Jump.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Ball_Enter_JumpTuck.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Ball_Idle.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Ball_JumpSmash.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Death_A.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Death_OilSpill.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_DormantPose.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Dormant_WakeUp.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_DropDown.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Falling.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Idle.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_React_Heavy_Front.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_React_Heavy_Front_Alt.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_React_Knockback.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_React_Knockback_Alt.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_React_Stunned.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_React_Stunned_B.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_React_Stunned_Enter.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_React_Stunned_Exit.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_React_Stunned_Idle.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_TurnLeft_90.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_TurnRight_90.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Walk_BWD.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Walk_FWD.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Walk_Left.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/ExoGame_Fire_Golem_Walk_Right.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Materials/CharM_Fire_Golem.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Materials/CharM_Golem_Weapon.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/SK_Enemy_Golem01_Weapon.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/SK_Enemy_Golem01_Weapon_Skeleton.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/SK_Fire_Golem.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Textures/T_GolemGold_N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Textures/T_Golem_DGold.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Textures/T_Golem_Gold_M.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Textures/T_Golem_Mace_D.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Textures/T_Golem_Mace_M.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Textures/T_Golem_Mace_N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Textures/T_Golem_N.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/SK_Mannequin_Skeleton.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UGDC/SAnimInstance.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UGDC/SAnimInstance.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/BluePrints/BP_FloorSwitch.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/FloorSwitch.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/FloorSwitch.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/Materials/CharM_Master_Grunt.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/SK_Master_Grunt.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/SK_Master_Grunt_Skeleton1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/Textures/T_Master_Grunt_Blade_D.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/Textures/T_Master_Grunt_Blade_M.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/Textures/T_Master_Grunt_D.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/InfinityBladeAdversaries/Enemy/Enemy_Golem/Textures/T_Golem_D.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/InfinityBladeAdversaries/Enemy/Enemy_Master_Grunt/Textures/T_Master_Grunt_M.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UGDC.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/UGDC.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/NewMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/NewMap.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +128,7 @@
       <configuration_9>
         <option name="CONFIGURATION" value="Development Editor" />
         <option name="PLATFORM" value="Win64" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/UE4.vcxproj" />
+        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/UGDC.vcxproj" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -218,7 +161,9 @@
       <updated>1641218003578</updated>
       <workItem from="1641218015627" duration="1266000" />
       <workItem from="1641220293562" duration="807000" />
-      <workItem from="1641263914308" duration="3759000" />
+      <workItem from="1641263914308" duration="6139000" />
+      <workItem from="1641348939855" duration="7117000" />
+      <workItem from="1641440268110" duration="8608000" />
     </task>
     <servers />
   </component>
