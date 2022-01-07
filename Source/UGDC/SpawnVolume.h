@@ -34,4 +34,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	FVector GetSpawnPoint_Dummy();
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void SpawnMyPawn(UClass* PawnClass, FVector const& Location);
 };

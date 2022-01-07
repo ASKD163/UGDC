@@ -5,6 +5,7 @@
 
 #include "Components/BoxComponent.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "SCharacter.h"
 
 // Sets default values
 ASpawnVolume::ASpawnVolume()
@@ -34,4 +35,15 @@ FVector ASpawnVolume::GetSpawnPoint_Dummy()
 {
 	return GetSpawnPoint();
 }
+
+void ASpawnVolume::SpawnMyPawn_Implementation(UClass* PawnClass, FVector const& Location)
+{
+	if (PawnClass)
+	{
+		UWorld* World = GetWorld();
+		if (World)
+			ASCharacter* SCharacter = World->SpawnActor<ASCharacter>(PawnClass, Location, FRotator::ZeroRotator);
+	}
+}
+
 
