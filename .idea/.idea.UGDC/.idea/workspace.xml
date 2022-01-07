@@ -6,9 +6,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/BluePrints/BP_FloorSwitch.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UGDC/FloorSwitch.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UGDC/FloorSwitch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/BluePrints/BP_SpawnVolume.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/SpawnVolume.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/SpawnVolume.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/NewMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/NewMap.umap" afterDir="false" />
     </list>
@@ -163,7 +163,8 @@
       <workItem from="1641220293562" duration="807000" />
       <workItem from="1641263914308" duration="6139000" />
       <workItem from="1641348939855" duration="7117000" />
-      <workItem from="1641440268110" duration="8608000" />
+      <workItem from="1641440268110" duration="10173000" />
+      <workItem from="1641519249759" duration="2735000" />
     </task>
     <servers />
   </component>
