@@ -9,11 +9,8 @@
 
 AExplosive::AExplosive()
 {
-	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-	MeshComp->SetupAttachment(RootComponent);
-
-	ParticleComp = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("Particle"));
-	ParticleComp->SetupAttachment(RootComponent);
+	bRotate = false;
+	RotateSpeed = FRotator::ZeroRotator;
 }
 
 void AExplosive::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
@@ -21,10 +18,6 @@ void AExplosive::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor
 {
 	Super::OnBeginOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
 	UE_LOG(LogTemp, Error, TEXT("%s"), *FString(__FUNCTION__));
-	
-	if (ParticleOverlap)	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ParticleOverlap, GetActorLocation());
-	if (SoundOverlap)	UGameplayStatics::SpawnSound2D(GetWorld(), SoundOverlap);
-	Destroy();
 }
 
 void AExplosive::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,

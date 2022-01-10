@@ -14,18 +14,6 @@ class UGDC_API AExplosive : public AItem
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleAnywhere, Category = "Item | Mesh")
-	UStaticMeshComponent* MeshComp;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Item | Particle")
-	UParticleSystem* ParticleOverlap;
-
-	UPROPERTY(VisibleAnywhere, Category = "Item | Particle")
-	UParticleSystemComponent* ParticleComp;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Item | Sound")
-	USoundBase* SoundOverlap;
-
 public:
 	AExplosive();
 	

@@ -22,7 +22,27 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	
+	UPROPERTY(VisibleAnywhere, Category = "Item | Mesh")
+	UStaticMeshComponent* MeshComp;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Item | Particle")
+	UParticleSystem* ParticleOverlap;
+
+	UPROPERTY(VisibleAnywhere, Category = "Item | Particle")
+	UParticleSystemComponent* ParticleComp;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Item | Sound")
+	USoundBase* SoundOverlap;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Item | Rotate")
+	bool bRotate;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Item | Rotate")
+	FRotator RotateSpeed;
+
 public:
+	virtual void Tick(float DeltaSeconds) override;
 	
 	UFUNCTION()
 	virtual void OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,

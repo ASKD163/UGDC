@@ -14,24 +14,6 @@ class UGDC_API APickup : public AItem
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleAnywhere, Category = "Item | Mesh")
-	UStaticMeshComponent* MeshComp;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Item | Particle")
-	UParticleSystem* ParticleOverlap;
-
-	UPROPERTY(VisibleAnywhere, Category = "Item | Particle")
-	UParticleSystemComponent* ParticleComp;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Item | Sound")
-	USoundBase* SoundOverlap;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Item | Rotate")
-	bool bRotate;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Item | Rotate")
-	FRotator RotateSpeed;
-
 public:
 	APickup();
 
