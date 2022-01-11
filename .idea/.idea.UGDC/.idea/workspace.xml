@@ -7,15 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/HUD/BP_Coin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/HUD/BP_Coin.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/HUD/WB_Health.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/HUD/WB_Health.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/HUD/WB_Stamina.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/HUD/WB_Stamina.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Explosive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Explosive.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Explosive.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Explosive.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Item.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Item.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Pickup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Pickup.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Pickup.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Pickup.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" afterDir="false" />
     </list>
@@ -177,7 +169,7 @@
       <workItem from="1641625019819" duration="15392000" />
       <workItem from="1641720220521" duration="913000" />
       <workItem from="1641774127161" duration="6504000" />
-      <workItem from="1641881566021" duration="5714000" />
+      <workItem from="1641881566021" duration="7457000" />
     </task>
     <servers />
   </component>

@@ -3,6 +3,7 @@
 
 #include "SCharacter.h"
 
+#include "../../../../Program Files (x86)/Windows Kits/10/Include/10.0.19041.0/um/Audioclient.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -40,6 +41,7 @@ ASCharacter::ASCharacter()
 
 	SprintSpeed = 1000.f;
 	DefaultSpeed = GetCharacterMovement()->MaxWalkSpeed;
+	CurrentState = EState::ES_Normal;
 
 	MaxHealth = 100;
 	MaxStamina = 100;
@@ -140,19 +142,30 @@ void ASCharacter::Pickup(EPickupType Type, uint32 Cnt)
 
 void ASCharacter::StartSprint()
 {
-	// UCharacterMovementComponent* CMC = GetCharacterMovement();
-	// if (CMC)
-	// {
-	// 	DefaultSpeed = CMC->GetMaxSpeed();
-	// 	
-	// }
-	GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
+	SetState(EState::ES_Sprint);
 	
 }
 
 void ASCharacter::StopSprint()
 {
-	GetCharacterMovement()->MaxWalkSpeed = DefaultSpeed;
+	SetState(EState::ES_Normal);
+}
+
+void ASCharacter::SetState(EState State)
+{
+	CurrentState = State;
+
+	switch (CurrentState)
+	{
+	case EState::ES_Normal:
+		GetCharacterMovement()->MaxWalkSpeed = DefaultSpeed;
+		break;
+	case EState::ES_Sprint:
+		GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
+		break;
+	default:
+		break;		
+	}
 }
 
 

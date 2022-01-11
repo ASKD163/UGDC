@@ -60,6 +60,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI")
 	int Coins;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
+	EState CurrentState;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -86,5 +89,7 @@ public:
 
 	UFUNCTION()
 	void StopSprint();
+
+	void SetState(EState State);
 
 };
