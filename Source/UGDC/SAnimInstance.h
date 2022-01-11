@@ -27,7 +27,6 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
 	bool bIsJump;
 	
-
 	virtual void NativeInitializeAnimation() override;
 
 	UFUNCTION(BlueprintCallable)

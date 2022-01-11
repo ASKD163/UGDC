@@ -3,7 +3,6 @@
 
 #include "SCharacter.h"
 
-#include "../../../../Program Files (x86)/Windows Kits/10/Include/10.0.19041.0/um/Audioclient.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -42,6 +41,8 @@ ASCharacter::ASCharacter()
 	SprintSpeed = 1000.f;
 	DefaultSpeed = GetCharacterMovement()->MaxWalkSpeed;
 	CurrentState = EState::ES_Normal;
+	bIsExhausted = false;
+	StaminaDrainRate = 20;
 
 	MaxHealth = 100;
 	MaxStamina = 100;
@@ -63,6 +64,46 @@ void ASCharacter::BeginPlay()
 void ASCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	float Delta = StaminaDrainRate * DeltaTime;
+	
+	switch (CurrentState)
+	{
+	case EState::ES_Normal:
+		{
+			if (bIsExhausted)
+			{
+				float tmp = Stamina + Delta;
+				Stamina = FMath::Clamp(tmp, 0.f, MaxStamina);
+				if (Stamina == MaxStamina)
+				{
+					bIsExhausted = false;
+				}
+			}
+			else
+			{
+				float tmp = Stamina + Delta;
+				Stamina = FMath::Clamp(tmp, 0.f, MaxStamina);
+			}
+			break;
+		}
+	case EState::ES_Sprint:
+		{
+			if (Stamina > 0)
+			{
+				//if (GetCharacterMovement()->Speed)
+				float tmp = Stamina - Delta;
+				Stamina = FMath::Clamp(tmp, 0.f, MaxStamina);
+			}
+			else
+			{
+				bIsExhausted = true;
+				SetState(EState::ES_Normal);
+			}
+			break;
+		}
+	default:
+		break;		
+	}
 
 }
 

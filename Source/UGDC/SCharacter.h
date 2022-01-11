@@ -33,9 +33,13 @@ class UGDC_API ASCharacter : public ACharacter
 
 	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	float DefaultSpeed;
-	//
+	
 	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	float SprintSpeed;
+
+	/*per second*/
+	UPROPERTY(EditDefaultsOnly, Category = "Stamina")
+	float StaminaDrainRate; 
 	
 public:
 	// Sets default values for this character's properties
@@ -63,6 +67,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
 	EState CurrentState;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
+	bool bIsExhausted;
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

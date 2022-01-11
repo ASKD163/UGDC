@@ -7,7 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" afterDir="false" />
     </list>
@@ -26,6 +25,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../Program Files (x86)/Windows Kits/10/Include/10.0.18362.0/um/winioctl.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="23BqnIlVHVhPV1EyZPQAiZdO0bV" />
   <component name="ProjectLevelVcsManager">
@@ -169,7 +171,7 @@
       <workItem from="1641625019819" duration="15392000" />
       <workItem from="1641720220521" duration="913000" />
       <workItem from="1641774127161" duration="6504000" />
-      <workItem from="1641881566021" duration="7457000" />
+      <workItem from="1641881566021" duration="8287000" />
     </task>
     <servers />
   </component>
