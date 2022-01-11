@@ -183,8 +183,7 @@ void ASCharacter::Pickup(EPickupType Type, uint32 Cnt)
 
 void ASCharacter::StartSprint()
 {
-	SetState(EState::ES_Sprint);
-	
+	if (!bIsExhausted)	SetState(EState::ES_Sprint);
 }
 
 void ASCharacter::StopSprint()
