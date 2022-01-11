@@ -5,6 +5,7 @@
 
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "UGDC/SCharacter.h"
 
 APickup::APickup()
 {
@@ -30,4 +31,11 @@ void APickup::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Oth
 	int32 OtherBodyIndex)
 {
 	Super::OnEndOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex);
+
+	if (OtherActor)
+	{
+		ASCharacter* Player = Cast<ASCharacter>(OtherActor);
+		if (Player) Player->Pickup(Type, 1);
+	}
 }
+

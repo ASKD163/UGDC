@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Pickup/Item.h"
 
 // Sets default values
 ASCharacter::ASCharacter()
@@ -36,6 +37,17 @@ ASCharacter::ASCharacter()
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationRoll = false;
 	bUseControllerRotationYaw = false;
+
+	SprintSpeed = 1000.f;
+	DefaultSpeed = GetCharacterMovement()->MaxWalkSpeed;
+
+	MaxHealth = 100;
+	MaxStamina = 100;
+
+	Health = MaxHealth;
+	Stamina = MaxStamina;
+
+	Coins = 0;
 }
 
 // Called when the game starts or when spawned
@@ -64,6 +76,9 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ASCharacter::StartSprint);
+	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ASCharacter::StopSprint);
+	
 }
 
 void ASCharacter::MoveForward(float Value)
@@ -94,6 +109,50 @@ void ASCharacter::TurnRight(float Value)
 void ASCharacter::LookUp(float Value)
 {
 	AddControllerPitchInput(Value * LookupRate * GetWorld()->GetDeltaSeconds());
+}
+
+void ASCharacter::SufferDamage(float Damage)
+{
+	if (Health > 0)
+	{
+		const float Temp = Health - Damage;
+		Health = FMath::Clamp(Temp, 0.f, MaxHealth);
+		if (Health <= 0) Die();
+	}
+}
+
+void ASCharacter::Die()
+{
+	UE_LOG(LogTemp, Error, TEXT("You Die!"));
+}
+
+void ASCharacter::Pickup(EPickupType Type, uint32 Cnt)
+{
+	switch (Type)
+	{
+	case Pt_Coin:
+		Coins += Cnt;
+		break;
+	default:
+		break;
+	}
+}
+
+void ASCharacter::StartSprint()
+{
+	// UCharacterMovementComponent* CMC = GetCharacterMovement();
+	// if (CMC)
+	// {
+	// 	DefaultSpeed = CMC->GetMaxSpeed();
+	// 	
+	// }
+	GetCharacterMovement()->MaxWalkSpeed = SprintSpeed;
+	
+}
+
+void ASCharacter::StopSprint()
+{
+	GetCharacterMovement()->MaxWalkSpeed = DefaultSpeed;
 }
 
 

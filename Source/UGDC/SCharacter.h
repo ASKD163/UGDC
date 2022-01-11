@@ -6,6 +6,14 @@
 #include "GameFramework/Character.h"
 #include "SCharacter.generated.h"
 
+UENUM()
+enum class EState: uint8
+{
+	ES_Normal UMETA(DisplayName = "Normal"),
+
+	ES_Sprint UMETA(DisplayName = "Sprint"),
+};
+
 UCLASS()
 class UGDC_API ASCharacter : public ACharacter
 {
@@ -22,6 +30,12 @@ class UGDC_API ASCharacter : public ACharacter
 
 	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	float LookupRate;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
+	float DefaultSpeed;
+	//
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
+	float SprintSpeed;
 	
 public:
 	// Sets default values for this character's properties
@@ -30,6 +44,21 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI")
+	float Health;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly,Category = "UI")
+	float MaxHealth;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI")
+	float Stamina;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI")
+	float MaxStamina;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI")
+	int Coins;
 
 public:	
 	// Called every frame
@@ -45,5 +74,17 @@ public:
 	void TurnRight(float Value);
 
 	void LookUp(float Value);
+
+	void SufferDamage(float Damage);
+
+	void Die();
+
+	void Pickup(enum EPickupType Type, uint32 Cnt);
+
+	UFUNCTION()
+	void StartSprint();
+
+	UFUNCTION()
+	void StopSprint();
 
 };

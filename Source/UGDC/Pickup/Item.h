@@ -6,6 +6,12 @@
 #include "GameFramework/Actor.h"
 #include "Item.generated.h"
 
+UENUM()
+enum EPickupType
+{
+	Pt_Coin,
+};
+
 UCLASS()
 class UGDC_API AItem : public AActor
 {

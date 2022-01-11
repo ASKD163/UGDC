@@ -14,6 +14,9 @@ class UGDC_API AExplosive : public AItem
 {
 	GENERATED_BODY()
 
+	UPROPERTY(VisibleAnywhere, Category = "Damage")
+	float Damage;
+
 public:
 	AExplosive();
 	

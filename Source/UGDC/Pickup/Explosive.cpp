@@ -5,10 +5,13 @@
 
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "UGDC/SCharacter.h"
 
 
 AExplosive::AExplosive()
 {
+	Damage = 30.f;
+	
 	bRotate = false;
 	RotateSpeed = FRotator::ZeroRotator;
 }
@@ -24,4 +27,7 @@ void AExplosive::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	Super::OnEndOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex);
+	
+	ASCharacter* Player = Cast<ASCharacter>(OtherActor);
+	if (Player) Player->SufferDamage(Damage);
 }

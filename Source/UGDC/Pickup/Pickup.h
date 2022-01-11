@@ -14,6 +14,8 @@ class UGDC_API APickup : public AItem
 {
 	GENERATED_BODY()
 
+	EPickupType Type = Pt_Coin;
+
 public:
 	APickup();
 
