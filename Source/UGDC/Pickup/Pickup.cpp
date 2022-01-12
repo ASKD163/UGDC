@@ -9,7 +9,6 @@
 
 APickup::APickup()
 {
-	PrimaryActorTick.bCanEverTick = true;
 
 	bRotate = true;
 	RotateSpeed = FRotator(0,180,0);
@@ -36,6 +35,7 @@ void APickup::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Oth
 	{
 		ASCharacter* Player = Cast<ASCharacter>(OtherActor);
 		if (Player) Player->Pickup(Type, 1);
+		Destroy();
 	}
 }
 

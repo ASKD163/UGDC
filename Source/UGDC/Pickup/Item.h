@@ -17,9 +17,6 @@ class UGDC_API AItem : public AActor
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleAnywhere, Category = "Item | Collision")
-	class USphereComponent* SphereComponent;
-	
 public:	
 	// Sets default values for this actor's properties
 	AItem();
@@ -28,6 +25,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, Category = "Item | Collision")
+	class USphereComponent* SphereComponent;
 	
 	UPROPERTY(VisibleAnywhere, Category = "Item | Mesh")
 	UStaticMeshComponent* MeshComp;

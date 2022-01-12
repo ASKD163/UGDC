@@ -27,7 +27,12 @@ void AExplosive::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	Super::OnEndOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex);
-	
-	ASCharacter* Player = Cast<ASCharacter>(OtherActor);
-	if (Player) Player->SufferDamage(Damage);
+	if (OtherActor)
+	{
+		ASCharacter* Player = Cast<ASCharacter>(OtherActor);
+		if (Player) Player->SufferDamage(Damage);
+
+		Destroy();
+	}
+
 }

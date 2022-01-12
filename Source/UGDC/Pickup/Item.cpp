@@ -10,7 +10,7 @@
 // Sets default values
 AItem::AItem()
 {
-	//PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = true;
 	
 	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere"));
 	RootComponent = SphereComponent;
@@ -57,7 +57,7 @@ void AItem::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Oth
 	
 	if (ParticleOverlap)	UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ParticleOverlap, GetActorLocation());
 	if (SoundOverlap)	UGameplayStatics::SpawnSound2D(GetWorld(), SoundOverlap);
-	Destroy();
+	//Destroy();
 }
 
 void AItem::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,

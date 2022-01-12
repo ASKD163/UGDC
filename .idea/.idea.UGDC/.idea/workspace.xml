@@ -6,9 +6,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/BluePrints/Pickup/BP_Weapon.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/HUD/WB_HUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/HUD/WB_HUD.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/SK_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/SK_Mannequin_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BluePrints/Pickup/BP_Pickup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/Pickup/BP_Pickup.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/NewMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/NewMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Explosive.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Explosive.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Item.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Item.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Item.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Item.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Pickup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Pickup.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +180,7 @@
       <workItem from="1641720220521" duration="913000" />
       <workItem from="1641774127161" duration="6504000" />
       <workItem from="1641881566021" duration="8287000" />
+      <workItem from="1641974106140" duration="3198000" />
     </task>
     <servers />
   </component>
