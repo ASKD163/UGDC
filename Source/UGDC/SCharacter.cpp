@@ -52,6 +52,9 @@ ASCharacter::ASCharacter()
 	Stamina = MaxStamina;
 
 	Coins = 0;
+
+	bAttacking = false;
+	bClicking = false;
 }
 
 // Called when the game starts or when spawned
@@ -63,10 +66,10 @@ void ASCharacter::BeginPlay()
 
 void ASCharacter::OnInteract()
 {
-	if (ActiveOverlapItem)
+	if (ActiveOverlapItem && !bAttacking)
 	{
 		AWeapon* Weapon = Cast<AWeapon>(ActiveOverlapItem);
-		Weapon->Equip(this);
+		if (Weapon)	Weapon->Equip(this);
 		ActiveOverlapItem = nullptr;
 	}
 }
@@ -142,12 +145,14 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ASCharacter::StartSprint);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ASCharacter::StopSprint);
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ASCharacter::OnInteract);
+	PlayerInputComponent->BindAction("Click", IE_Pressed, this, &ASCharacter::OnClickBegin);
+	PlayerInputComponent->BindAction("Click", IE_Released, this, &ASCharacter::OnClickEnd);
 	
 }
 
 void ASCharacter::MoveForward(float Value)
 {
-	if (Controller)
+	if (Controller && !bAttacking)
 	{
 		const FRotator Rotation = FRotator(0, Controller->GetControlRotation().Yaw , 0);
 		const FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::X);
@@ -157,7 +162,7 @@ void ASCharacter::MoveForward(float Value)
 
 void ASCharacter::MoveRight(float Value)
 {
-	if (Controller)
+	if (Controller && !bAttacking)
 	{
 		const FRotator Rotation = FRotator(0, Controller->GetControlRotation().Yaw , 0);
 		const FVector Direction = FRotationMatrix(Rotation).GetUnitAxis(EAxis::Y);
@@ -227,6 +232,44 @@ void ASCharacter::SetState(EState State)
 	default:
 		break;		
 	}
+}
+
+void ASCharacter::OnClickBegin()
+{
+	bClicking = true;
+	if (EquippedWeapon && !bAttacking)
+	{
+		AttackBegin();
+	}
+}
+
+void ASCharacter::OnClickEnd()
+{
+	bClicking = false;
+}
+
+void ASCharacter::AttackBegin()
+{
+	if (!bAttacking)
+	{
+		bAttacking = true;
+		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+		if (AnimInstance && AnimMontage && !AnimInstance->Montage_IsPlaying(AnimMontage))
+		{
+			AnimInstance->Montage_Play(AnimMontage);
+			AnimInstance->Montage_JumpToSection(FName("Attack1"), AnimMontage);
+		}
+	}
+}
+
+void ASCharacter::AttackEnd()
+{
+	bAttacking = false;
+	if (bClicking && EquippedWeapon)
+	{
+		AttackBegin();
+	}
+
 }
 
 

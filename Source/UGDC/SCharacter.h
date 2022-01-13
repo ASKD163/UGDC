@@ -70,12 +70,21 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
 	bool bIsExhausted;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	class AWeapon* EquippedWeapon;
+
 	
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class AWeapon* EquippedWeapon;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class AItem* ActiveOverlapItem;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UAnimMontage* AnimMontage;
+
+	bool bAttacking;
+
+	bool bClicking;
 
 	UFUNCTION()
 	void OnInteract();
@@ -109,5 +118,16 @@ public:
 	void StopSprint();
 
 	void SetState(EState State);
+
+	UFUNCTION()
+	void OnClickBegin();
+
+	UFUNCTION()
+	void OnClickEnd();
+
+	void AttackBegin();
+
+	UFUNCTION(BlueprintCallable)
+	void AttackEnd();
 
 };

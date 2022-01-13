@@ -6,12 +6,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/Attack_Montage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/BS1D_Walking_Run_Weaponed.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BluePrints/Pickup/BP_Weapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/Pickup/BP_Weapon.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/AB_FireGolem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/AB_FireGolem.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/SK_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/SK_Mannequin_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/NewMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/NewMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" afterDir="false" />
     </list>
@@ -178,7 +180,7 @@
       <workItem from="1641774127161" duration="6504000" />
       <workItem from="1641881566021" duration="8287000" />
       <workItem from="1641974106140" duration="6016000" />
-      <workItem from="1642062595553" duration="2944000" />
+      <workItem from="1642062595553" duration="8396000" />
     </task>
     <servers />
   </component>
