@@ -256,8 +256,25 @@ void ASCharacter::AttackBegin()
 		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 		if (AnimInstance && AnimMontage && !AnimInstance->Montage_IsPlaying(AnimMontage))
 		{
+#if 0
 			AnimInstance->Montage_Play(AnimMontage);
 			AnimInstance->Montage_JumpToSection(FName("Attack1"), AnimMontage);
+#else
+			 int Section = FMath::RandRange(0, 1);
+			 switch (Section)
+			 {
+			 case 0:
+			 	AnimInstance->Montage_Play(AnimMontage);
+			 	AnimInstance->Montage_JumpToSection(FName("Attack1"), AnimMontage);
+			 	break;
+			 case 1:
+			 	AnimInstance->Montage_Play(AnimMontage);
+			 	AnimInstance->Montage_JumpToSection(FName("Attack2"), AnimMontage);
+			 	break;
+			 default:
+			 	break;		
+			}
+#endif
 		}
 	}
 }
