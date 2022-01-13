@@ -69,8 +69,19 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
 	bool bIsExhausted;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class AWeapon* EquippedWeapon;
 	
-public:	
+public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class AItem* ActiveOverlapItem;
+
+	UFUNCTION()
+	void OnInteract();
+
+	void SetWeapon(AWeapon* Weapon);
+	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

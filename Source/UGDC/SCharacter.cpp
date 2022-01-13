@@ -7,6 +7,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Pickup/Item.h"
+#include "Pickup/Weapon.h"
 
 // Sets default values
 ASCharacter::ASCharacter()
@@ -58,6 +59,25 @@ void ASCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void ASCharacter::OnInteract()
+{
+	if (ActiveOverlapItem)
+	{
+		AWeapon* Weapon = Cast<AWeapon>(ActiveOverlapItem);
+		Weapon->Equip(this);
+		ActiveOverlapItem = nullptr;
+	}
+}
+
+void ASCharacter::SetWeapon(AWeapon* Weapon)
+{
+	if (EquippedWeapon)
+	{
+		EquippedWeapon->Destroy();
+	}
+	EquippedWeapon = Weapon;
 }
 
 // Called every frame
@@ -121,6 +141,7 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 	PlayerInputComponent->BindAction("Sprint", IE_Pressed, this, &ASCharacter::StartSprint);
 	PlayerInputComponent->BindAction("Sprint", IE_Released, this, &ASCharacter::StopSprint);
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ASCharacter::OnInteract);
 	
 }
 

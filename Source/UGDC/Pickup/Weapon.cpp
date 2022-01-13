@@ -4,6 +4,7 @@
 #include "Weapon.h"
 
 #include "Components/SphereComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "UGDC/SCharacter.h"
 
@@ -24,11 +25,38 @@ void AWeapon::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* O
 	if (OtherActor)
 	{
 		ASCharacter* Character = Cast<ASCharacter>(OtherActor);
-		if (Character) Equip(Character);
+		if (Character)
+		{
+			if (!Character->ActiveOverlapItem) Character->ActiveOverlapItem = this;
+
+			TArray<FStringFormatArg> FormatArrays;
+			FormatArrays.Add(GetName());
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 100.f, FColor::Blue,
+			                                              FString::Format(TEXT("Press E To Equip {0}"), FormatArrays),
+			                                              true, FVector2D(4, 4));
+			
+		}
 	}
 }
 
-void AWeapon::Equip(ACharacter* Character)
+void AWeapon::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
+	int32 OtherBodyIndex)
+{
+	Super::OnEndOverlap(OverlappedComponent, OtherActor, OtherComp, OtherBodyIndex);
+	if (OtherActor)
+	{
+		ASCharacter* Character = Cast<ASCharacter>(OtherActor);
+		if (Character)
+		{
+			if (Character->ActiveOverlapItem == this) Character->ActiveOverlapItem = nullptr;
+			
+			if (GEngine) GEngine->ClearOnScreenDebugMessages();
+		}
+	}
+	
+}
+
+void AWeapon::Equip(ASCharacter* Character)
 {
 	if (Character)
 	{
@@ -40,5 +68,9 @@ void AWeapon::Equip(ACharacter* Character)
 		ParticleComp->SetActive(false);
 
 		SphereComponent->OnComponentBeginOverlap.RemoveDynamic(this, &AItem::OnBeginOverlap);
+		SphereComponent->OnComponentEndOverlap.RemoveDynamic(this, &AItem::OnEndOverlap);
+		if (GEngine) GEngine->ClearOnScreenDebugMessages();
+		if (SoundEquipped) UGameplayStatics::PlaySound2D(this, SoundEquipped);
+		Character->SetWeapon(this);
 	}
 }
