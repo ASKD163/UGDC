@@ -17,8 +17,6 @@ class UGDC_API USAnimInstance : public UAnimInstance
 	UPROPERTY()
 	APawn* Pawn;
 
-	
-
 public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")

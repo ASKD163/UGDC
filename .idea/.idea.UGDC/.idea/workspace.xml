@@ -6,8 +6,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/NewAnimMontage.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Anim_Spider.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/BlendSpace_Spide.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Attack_Melee.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Attack_Melee_B.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Attack_Melee_C.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Cast_Roar.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Cast_Summon.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Charge.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Death.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Falling.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Idle.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_React_Heavy_Front.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_React_Knockback_Front.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_React_Stunned.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_React_Stunned_Enter.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_React_Stunned_Exit.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_React_Stunned_Idle.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Teleport.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Walk_Bwd.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Walk_Fwd.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Walk_Left.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Walk_Right.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Materials/CharM_Greater_Spider.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Materials/CharM_Greater_Spider_Ice.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/SK_Greater_Spider.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/SK_Greater_Spider_Skeleton.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Textures/T_Enemy_GreaterSpider_Fire_D.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Textures/T_Enemy_GreaterSpider_Fire_M.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Textures/T_Enemy_GreaterSpider_Fire_N.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Textures/T_Enemy_GreaterSpider_Ice_D.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/BluePrints/BP_Enemy.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/Enemy/EnemyAnimInstance.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/Enemy/EnemyAnimInstance.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/AB_FireGolem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/AB_FireGolem.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/SK_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/SK_Mannequin_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/NewMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/NewMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/SAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SAnimInstance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/UGDC.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/UGDC.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +213,8 @@
       <workItem from="1641881566021" duration="8287000" />
       <workItem from="1641974106140" duration="6016000" />
       <workItem from="1642062595553" duration="9557000" />
+      <workItem from="1642146658446" duration="10368000" />
+      <workItem from="1642212373915" duration="7005000" />
     </task>
     <servers />
   </component>
