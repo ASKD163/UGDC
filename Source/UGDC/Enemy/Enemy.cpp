@@ -9,7 +9,7 @@
 #include "Components/SphereComponent.h"
 #include "GameFramework/PawnMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "Kismet/KismetSystemLibrary.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "UGDC/SCharacter.h"
 
 // Sets default values
@@ -30,6 +30,8 @@ AEnemy::AEnemy()
 	WeaponBox->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 
 	MoveState = EMoveState::MS_Idle;
+
+	AttackInterval = 3.f;
 }
 
 // Called when the game starts or when spawned
@@ -51,8 +53,22 @@ void AEnemy::BeginPlay()
 	WeaponBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
+void AEnemy::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+
+	if (TargetMen && !bAttacking)
+	{
+		const FRotator CurrentRotation = GetActorRotation();
+		
+		FRotator TargetRotation =  UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), TargetMen->GetActorLocation());
+		TargetRotation = FRotator(CurrentRotation.Pitch, TargetRotation.Yaw, CurrentRotation.Roll);
+		SetActorRotation(TargetRotation);
+	}
+}
+
 void AEnemy::OnDetectSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+                                        UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (!TargetMen)
 	{
@@ -81,8 +97,8 @@ void AEnemy::OnAttackSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent
 			if (Character)
 			{
 				HittingMen = Character;
-				AttackBegin();
-				//MoveState = EMoveState::MS_Attack;
+				MoveState = EMoveState::MS_Attack;
+				if (!bInColdTime) AttackBegin();
 				if (AIController) AIController->StopMovement();
 			}
 		}
@@ -96,7 +112,7 @@ void AEnemy::OnDetectSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, 
 	if (OtherActor)
 	{
 		ASCharacter* Character = Cast<ASCharacter>(OtherActor);
-		if (Character == TargetMen)
+		if (Character && Character == TargetMen)
 		{
 			TargetMen = nullptr;
 			if (MoveState != EMoveState::MS_Attack) MoveState = EMoveState::MS_Idle;
@@ -111,10 +127,11 @@ void AEnemy::OnAttackSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, 
 	if (OtherActor)
 	{
 		ASCharacter* Character = Cast<ASCharacter>(OtherActor);
-		if (Character == HittingMen)
+		if (Character && Character == HittingMen)
 		{
 			//TargetMen = HittingMen;
 			HittingMen = nullptr;
+			//UpdateState();
 		}
 	}
 }
@@ -171,33 +188,28 @@ void AEnemy::OnWeaponBoxEndOverlap(UPrimitiveComponent* OverlappedComponent, AAc
 
 void AEnemy::AttackBegin()
 {
-	MoveState = EMoveState::MS_Attack;
-	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
-
-	if (AnimInstance && AnimMontage && !AnimInstance->Montage_IsPlaying(AnimMontage))
+	if (HittingMen)
 	{
-		AnimInstance->Montage_Play(AnimMontage);
-		AnimInstance->Montage_JumpToSection("Attack", AnimMontage);
-	}
+		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 
+		if (AnimInstance && AnimMontage && !AnimInstance->Montage_IsPlaying(AnimMontage))
+		{
+			bAttacking = true;
+			AnimInstance->Montage_Play(AnimMontage);
+			AnimInstance->Montage_JumpToSection("Attack", AnimMontage);
+
+			bInColdTime = true;
+			GetWorldTimerManager().ClearTimer(AttackCoolDownTimer);
+			GetWorldTimerManager().SetTimer(AttackCoolDownTimer, this, &AEnemy::OnAttackTimeout, AttackInterval);
+		}
+	}
 }
 
 void AEnemy::AttackEnd()
 {
-	if (HittingMen)
-	{
-		MoveToTarget();
-		AttackBegin();
-	}
-	else if (TargetMen)
-	{
-		MoveState = EMoveState::MS_MoveToTarget;
-		MoveToTarget();
-	}
-	else
-	{
-		MoveState = EMoveState::MS_Idle;
-	}
+	bAttacking = false;
+	
+	UpdateState();
 }
 
 void AEnemy::BeginOverlap()
@@ -208,4 +220,32 @@ void AEnemy::BeginOverlap()
 void AEnemy::EndOverlap()
 {
 	WeaponBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+}
+
+void AEnemy::OnAttackTimeout()
+{
+	bInColdTime = false;
+
+	UpdateState();
+}
+
+void AEnemy::UpdateState()
+{
+	if (HittingMen)
+	{
+		MoveToTarget();
+		if (!bInColdTime) AttackBegin();
+	}
+	else if (TargetMen)
+	{
+		if (!bAttacking)
+		{
+			MoveState = EMoveState::MS_MoveToTarget;
+			MoveToTarget();
+		}
+	}
+	else
+	{
+		MoveState = EMoveState::MS_Idle;
+	}
 }

@@ -4,8 +4,11 @@
 #include "SCharacter.h"
 
 #include "Camera/CameraComponent.h"
+#include "Components/SphereComponent.h"
+#include "Enemy/Enemy.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "Pickup/Item.h"
 #include "Pickup/Weapon.h"
 
@@ -24,6 +27,12 @@ ASCharacter::ASCharacter()
 	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	CameraComp->SetupAttachment(SpringArmComp, USpringArmComponent::SocketName);
 	CameraComp->bUsePawnControlRotation = false;
+
+	AttackSphere = CreateDefaultSubobject<USphereComponent>(TEXT("Attack"));
+	AttackSphere->SetupAttachment(RootComponent);
+	AttackSphere->SetSphereRadius(300.f);
+	AttackSphere->SetCollisionResponseToAllChannels(ECR_Ignore);
+	AttackSphere->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	
 	GetCharacterMovement()->bOrientRotationToMovement = true; // 向运动方向转身
 	GetCharacterMovement()->RotationRate = FRotator(0, 450, 0); //转身速度
@@ -61,7 +70,9 @@ ASCharacter::ASCharacter()
 void ASCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	AttackSphere->OnComponentBeginOverlap.AddDynamic(this, &ASCharacter::OnAttackSphereBeginOverlap);
+	AttackSphere->OnComponentEndOverlap.AddDynamic(this, &ASCharacter::OnAttackSphereEndOverlap);
 }
 
 void ASCharacter::OnInteract()
@@ -250,12 +261,20 @@ void ASCharacter::OnClickEnd()
 
 void ASCharacter::AttackBegin()
 {
+	if (TargetEnemy)
+	{
+		const FRotator CurrentRotation = GetActorRotation();
+		
+		FRotator TargetRotation =  UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), TargetEnemy->GetActorLocation());
+		TargetRotation = FRotator(CurrentRotation.Pitch, TargetRotation.Yaw, CurrentRotation.Roll);
+		SetActorRotation(TargetRotation);
+	}
 	if (!bAttacking)
 	{
-		bAttacking = true;
 		UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 		if (AnimInstance && AnimMontage && !AnimInstance->Montage_IsPlaying(AnimMontage))
 		{
+			bAttacking = true;
 #if 0
 			AnimInstance->Montage_Play(AnimMontage);
 			AnimInstance->Montage_JumpToSection(FName("Attack1"), AnimMontage);
@@ -287,6 +306,30 @@ void ASCharacter::AttackEnd()
 		AttackBegin();
 	}
 
+}
+
+void ASCharacter::OnAttackSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (!TargetEnemy)
+	{
+		if (OtherActor)
+		{
+			AEnemy* Tmp = Cast<AEnemy>(OtherActor);
+			if (Tmp) TargetEnemy = Tmp;
+		}
+	}
+
+}
+
+void ASCharacter::OnAttackSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	if (OtherActor)
+	{
+		AEnemy* Tmp = Cast<AEnemy>(OtherActor);
+		if (Tmp == TargetEnemy) TargetEnemy = nullptr;
+	}
 }
 
 

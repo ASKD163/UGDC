@@ -6,24 +6,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/Spider_Montage.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/AB_FireGolem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/AB_FireGolem.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/Attack_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Golem/Enemy_Golem_Animations/Attack_Montage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Anim_Spider.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Anim_Spider.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Attack_Melee_C.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/Enemy_SpiderGreater_Animation/ExoGame_Greater_Spider_Attack_Melee_C.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/SK_Greater_Spider_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/Enemy_Great_Spider/SK_Greater_Spider_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/SK_Mannequin_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Assets/InfinityBladeAdversaries/Enemy/SK_Mannequin_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_Enemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BluePrints/Pickup/BP_Weapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/Pickup/BP_Weapon.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/NewMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/NewMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/SAnimInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SAnimInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/SAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SAnimInstance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -200,7 +188,7 @@
       <workItem from="1642471120695" duration="5432000" />
       <workItem from="1642509330325" duration="5090000" />
       <workItem from="1642556863922" duration="1935000" />
-      <workItem from="1642571981701" duration="4969000" />
+      <workItem from="1642571981701" duration="12765000" />
     </task>
     <servers />
   </component>

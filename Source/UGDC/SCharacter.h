@@ -25,6 +25,9 @@ class UGDC_API ASCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, Category = "Component")
 	class UCameraComponent* CameraComp;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Component")
+	class USphereComponent* AttackSphere;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	float BaseTurnRate;
 
@@ -39,7 +42,10 @@ class UGDC_API ASCharacter : public ACharacter
 
 	/*per second*/
 	UPROPERTY(EditDefaultsOnly, Category = "Stamina")
-	float StaminaDrainRate; 
+	float StaminaDrainRate;
+
+	UPROPERTY()
+	class AEnemy* TargetEnemy;
 	
 public:
 	// Sets default values for this character's properties
@@ -69,8 +75,6 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
 	bool bIsExhausted;
-
-
 	
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
@@ -135,4 +139,13 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void AttackEnd();
+
+	UFUNCTION(BlueprintCallable)
+	void OnAttackSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+								    UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
+									const FHitResult& SweepResult);
+
+	UFUNCTION()
+	void OnAttackSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+								  UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 };
