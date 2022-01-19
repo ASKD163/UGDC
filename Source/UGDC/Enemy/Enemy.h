@@ -38,6 +38,18 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Attack")
+	class UBoxComponent* WeaponBox;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Attack | Montage")
+	class UAnimMontage* AnimMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Attack | Effect")
+	UParticleSystem* InteractParticle;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Attack | Sound")
+	USoundBase* ReactSound;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	EMoveState MoveState;
 	
@@ -67,4 +79,25 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void MoveToTarget();
+
+	UFUNCTION(BlueprintCallable)
+	void OnWeaponBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	                             UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
+	                             const FHitResult& SweepResult);
+
+	UFUNCTION()
+	void OnWeaponBoxEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	                           UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+	UFUNCTION()
+	void AttackBegin();
+
+	UFUNCTION(BlueprintCallable)
+	void AttackEnd();
+
+	UFUNCTION(BlueprintCallable)
+	void BeginOverlap();
+
+	UFUNCTION(BlueprintCallable)
+	void EndOverlap();
 };

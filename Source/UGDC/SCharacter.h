@@ -79,8 +79,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class AItem* ActiveOverlapItem;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Attack | Montage")
 	UAnimMontage* AnimMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Attack | Effect")
+	UParticleSystem* InteractParticle;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Attack | Sound")
+	USoundBase* ReactSound;
 
 	bool bAttacking;
 
@@ -129,5 +135,4 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void AttackEnd();
-
 };

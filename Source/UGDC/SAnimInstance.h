@@ -18,6 +18,8 @@ class UGDC_API USAnimInstance : public UAnimInstance
 	APawn* Pawn;
 
 public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
+	class ASCharacter* SCharacter;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
 	float Velocity;

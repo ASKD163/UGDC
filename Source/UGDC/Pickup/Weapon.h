@@ -21,7 +21,12 @@ class UGDC_API AWeapon : public AItem
 	USoundBase* SoundEquipped;
 
 public:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	class UBoxComponent* WeaponBox;
+	
 	AWeapon();
+
+	virtual void BeginPlay() override;
 	
 	virtual void OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	                            UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
@@ -31,5 +36,20 @@ public:
 	                          UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) override;
 	
 	void Equip(class ASCharacter* Character);
+
+	UFUNCTION(BlueprintCallable)
+	void OnWeaponBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+								 UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
+								 const FHitResult& SweepResult);
+
+	UFUNCTION()
+	void OnWeaponBoxEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+							   UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+	UFUNCTION(BlueprintCallable)
+	void BeginOverlap();
+
+	UFUNCTION(BlueprintCallable)
+	void EndOverlap();
 	
 };
