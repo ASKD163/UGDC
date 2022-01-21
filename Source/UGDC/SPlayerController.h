@@ -16,8 +16,17 @@ class UGDC_API ASPlayerController : public APlayerController
 
 	UPROPERTY(EditDefaultsOnly, Category = "UI")
 	TSubclassOf<UUserWidget> HUDAsset;
+
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
+	TSubclassOf<UUserWidget> EnemyHUDAsset;
+
+	UUserWidget* EnemyHUD;
 	
 public:
 	virtual void BeginPlay() override;
+
+	void SetEnemyHealthBaeVisibility(bool Visible);
+
+	void UpdateEnemyHealthBarPosition(FVector Location);
 	
 };

@@ -3,6 +3,7 @@
 
 #include "SCharacter.h"
 
+#include "SPlayerController.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
@@ -75,6 +76,8 @@ void ASCharacter::BeginPlay()
 
 	AttackSphere->OnComponentBeginOverlap.AddDynamic(this, &ASCharacter::OnAttackSphereBeginOverlap);
 	AttackSphere->OnComponentEndOverlap.AddDynamic(this, &ASCharacter::OnAttackSphereEndOverlap);
+
+	SPlayerController = Cast<ASPlayerController>(GetController());
 }
 
 void ASCharacter::OnInteract()
@@ -101,6 +104,9 @@ void ASCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	float Delta = StaminaDrainRate * DeltaTime;
+
+	if (SPlayerController && TargetEnemy)
+		SPlayerController->UpdateEnemyHealthBarPosition(TargetEnemy->GetActorLocation());
 	
 	switch (CurrentState)
 	{
@@ -325,6 +331,8 @@ void ASCharacter::OnAttackSphereBeginOverlap(UPrimitiveComponent* OverlappedComp
 			AEnemy* Tmp = Cast<AEnemy>(OtherActor);
 			if (Tmp) TargetEnemy = Tmp;
 		}
+		if (SPlayerController)
+			SPlayerController->SetEnemyHealthBaeVisibility(TargetEnemy != nullptr);
 	}
 
 }
@@ -337,6 +345,8 @@ void ASCharacter::OnAttackSphereEndOverlap(UPrimitiveComponent* OverlappedCompon
 		AEnemy* Tmp = Cast<AEnemy>(OtherActor);
 		if (Tmp == TargetEnemy) TargetEnemy = nullptr;
 	}
+	if (SPlayerController)
+		SPlayerController->SetEnemyHealthBaeVisibility(TargetEnemy != nullptr);
 }
 
 float ASCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,

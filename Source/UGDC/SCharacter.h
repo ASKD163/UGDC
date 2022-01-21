@@ -45,8 +45,7 @@ class UGDC_API ASCharacter : public ACharacter
 	float StaminaDrainRate;
 
 	UPROPERTY()
-	class AEnemy* TargetEnemy;
-	
+	class ASPlayerController* SPlayerController;
 public:
 	// Sets default values for this character's properties
 	ASCharacter();
@@ -75,6 +74,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
 	bool bIsExhausted;
+
+	UPROPERTY(BlueprintReadOnly)
+	class AEnemy* TargetEnemy;
 	
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)

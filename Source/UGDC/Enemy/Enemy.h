@@ -43,12 +43,6 @@ class UGDC_API AEnemy : public ACharacter
 	FTimerHandle AttackCoolDownTimer;
 
 	UPROPERTY(VisibleAnywhere, Category = "Damage")
-	float MaxHealth;
-
-	UPROPERTY(VisibleAnywhere, Category = "Damage")
-	float Health;
-
-	UPROPERTY(VisibleAnywhere, Category = "Damage")
 	float Damage;
 	
 public:
@@ -85,6 +79,12 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Damage")
 	TSubclassOf<UDamageType> DamageType;
+
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Damage")
+	float MaxHealth;
+
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Damage")
+	float Health;
 	
 	UFUNCTION()
 	void OnDetectSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
