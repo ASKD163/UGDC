@@ -20,6 +20,12 @@ class UGDC_API AWeapon : public AItem
 	UPROPERTY(EditDefaultsOnly, Category = "Item | Sound")
 	USoundBase* SoundEquipped;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Item | Damage")
+	float Damage;
+
+	UPROPERTY(EditInstanceOnly, Category = "Item | Damage")
+	TSubclassOf<UDamageType> DamageType;
+	
 public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	class UBoxComponent* WeaponBox;
@@ -51,5 +57,4 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void EndOverlap();
-	
 };

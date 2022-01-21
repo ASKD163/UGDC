@@ -6,6 +6,7 @@
 #include "AIController.h"
 #include "DrawDebugHelpers.h"
 #include "Components/BoxComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/PawnMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
@@ -32,6 +33,9 @@ AEnemy::AEnemy()
 	MoveState = EMoveState::MS_Idle;
 
 	AttackInterval = 3.f;
+
+	MaxHealth = 100;
+	Damage = 60;
 }
 
 // Called when the game starts or when spawned
@@ -51,6 +55,8 @@ void AEnemy::BeginPlay()
 	AIController = Cast<AAIController>(GetController());
 
 	WeaponBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+	Health = MaxHealth;
 }
 
 void AEnemy::Tick(float DeltaSeconds)
@@ -169,6 +175,10 @@ void AEnemy::OnWeaponBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, A
 		if (SCharacter)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Hit"));
+			const FDamageEvent DamageEvent;
+
+			if (DamageType)
+				UGameplayStatics::ApplyDamage(SCharacter, Damage, AIController, this, DamageType);
 			
 			const FVector Location = SweepResult.Location;
 			DrawDebugSphere(GetWorld(), Location, 10, 12, FColor::Red, true, 3.f);
@@ -231,6 +241,7 @@ void AEnemy::OnAttackTimeout()
 
 void AEnemy::UpdateState()
 {
+	if (MoveState == EMoveState::MS_Dead) return;
 	if (HittingMen)
 	{
 		MoveToTarget();
@@ -248,4 +259,39 @@ void AEnemy::UpdateState()
 	{
 		MoveState = EMoveState::MS_Idle;
 	}
+}
+
+void AEnemy::Die()
+{
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && AnimMontage)
+	{
+		AnimInstance->Montage_Play(AnimMontage);
+		AnimInstance->Montage_JumpToSection(FName("Death"), AnimMontage);
+	}
+	
+	MoveState = EMoveState::MS_Dead;
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	AttackSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	DetectSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+}
+
+float AEnemy::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
+                         AActor* DamageCauser)
+{
+	UE_LOG(LogTemp, Log, TEXT("B"));
+	if (Health > 0)
+	{
+		UE_LOG(LogTemp, Log, TEXT("A"));
+		Health = FMath::Clamp(Health - DamageAmount, 0.f, MaxHealth);
+		if (Health <= 0) Die();
+	}
+	
+	return Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+}
+
+void AEnemy::DeadEnd()
+{
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance) AnimInstance->Montage_Pause();
 }

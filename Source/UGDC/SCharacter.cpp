@@ -4,10 +4,12 @@
 #include "SCharacter.h"
 
 #include "Camera/CameraComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "Components/SphereComponent.h"
 #include "Enemy/Enemy.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Pickup/Item.h"
 #include "Pickup/Weapon.h"
@@ -203,7 +205,12 @@ void ASCharacter::SufferDamage(float Damage)
 
 void ASCharacter::Die()
 {
-	UE_LOG(LogTemp, Error, TEXT("You Die!"));
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && AnimMontage)
+	{
+		AnimInstance->Montage_Play(AnimMontage);
+		AnimInstance->Montage_JumpToSection(FName("Dead"), AnimMontage);
+	}
 }
 
 void ASCharacter::Pickup(EPickupType Type, uint32 Cnt)
@@ -330,6 +337,23 @@ void ASCharacter::OnAttackSphereEndOverlap(UPrimitiveComponent* OverlappedCompon
 		AEnemy* Tmp = Cast<AEnemy>(OtherActor);
 		if (Tmp == TargetEnemy) TargetEnemy = nullptr;
 	}
+}
+
+float ASCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
+	AActor* DamageCauser)
+{
+	SufferDamage(DamageAmount);
+	
+	return Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
+}
+
+void ASCharacter::DeadEnd()
+{
+	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+	if (AnimInstance && AnimMontage) AnimInstance->Montage_Pause();
+
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	//DisableInput(UGameplayStatics::GetPlayerController(this, 0));
 }
 
 

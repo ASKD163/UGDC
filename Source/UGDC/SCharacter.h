@@ -148,4 +148,9 @@ public:
 	UFUNCTION()
 	void OnAttackSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 								  UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
+
+	UFUNCTION(BlueprintCallable)
+	void DeadEnd();
 };

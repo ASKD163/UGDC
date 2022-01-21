@@ -13,6 +13,7 @@ enum class EMoveState: uint8
 	MS_Idle				UMETA(DisplayName = "Idle"),
 	MS_MoveToTarget		UMETA(DisplayName = "MoveToTarget"),
 	MS_Attack			UMETA(DisplayName = "Attack"),
+	MS_Dead				UMETA(DisplayName = "Death"),
 };
 
 UCLASS()
@@ -40,6 +41,15 @@ class UGDC_API AEnemy : public ACharacter
 
 	UPROPERTY()
 	FTimerHandle AttackCoolDownTimer;
+
+	UPROPERTY(VisibleAnywhere, Category = "Damage")
+	float MaxHealth;
+
+	UPROPERTY(VisibleAnywhere, Category = "Damage")
+	float Health;
+
+	UPROPERTY(VisibleAnywhere, Category = "Damage")
+	float Damage;
 	
 public:
 	// Sets default values for this character's properties
@@ -72,6 +82,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class ASCharacter* TargetMen;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	TSubclassOf<UDamageType> DamageType;
 	
 	UFUNCTION()
 	void OnDetectSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
@@ -120,4 +133,11 @@ public:
 
 	UFUNCTION()
 	void UpdateState();
+
+	void Die();
+
+	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
+
+	UFUNCTION(BlueprintCallable)
+	void DeadEnd();
 };

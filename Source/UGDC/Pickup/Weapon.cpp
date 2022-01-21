@@ -23,6 +23,8 @@ AWeapon::AWeapon()
 	
 	bRotate = true;
 	RotateSpeed = FRotator(0,180,0);
+
+	Damage = 110;
 }
 
 void AWeapon::BeginPlay()
@@ -89,6 +91,8 @@ void AWeapon::Equip(ASCharacter* Character)
 		if (GEngine) GEngine->ClearOnScreenDebugMessages();
 		if (SoundEquipped) UGameplayStatics::PlaySound2D(this, SoundEquipped);
 		Character->SetWeapon(this);
+
+		SetOwner(Character);
 	}
 }
 
@@ -100,13 +104,18 @@ void AWeapon::OnWeaponBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, 
 		AEnemy* Enemy = Cast<AEnemy>(OtherActor);
 		if (Enemy)
 		{
-			const FVector Location = SweepResult.Location;
-			//DrawDebugSphere(GetWorld(), Location, 10, 12, FColor::Red, true, 3.f);
-			if (Enemy->InteractParticle)
-				UGameplayStatics::SpawnEmitterAtLocation(this, Enemy->InteractParticle, Mesh->GetComponentLocation());
+			ASCharacter* SCharacter = Cast<ASCharacter>(GetOwner());
+			if (SCharacter)
+			{
+				if (DamageType)
+					UGameplayStatics::ApplyDamage(Enemy, Damage, SCharacter->GetController(), this, DamageType);
+				
+				if (Enemy->InteractParticle)
+					UGameplayStatics::SpawnEmitterAtLocation(this, Enemy->InteractParticle, Mesh->GetComponentLocation());
 	
-			if (Enemy->ReactSound)
-				UGameplayStatics::PlaySound2D(this, Enemy->ReactSound);
+				if (Enemy->ReactSound)
+					UGameplayStatics::PlaySound2D(this, Enemy->ReactSound);
+			}
 		}
 	}
 }
