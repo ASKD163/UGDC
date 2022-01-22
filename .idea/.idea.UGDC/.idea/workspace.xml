@@ -6,18 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/HUD/WB_Enemy.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_Enemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_PlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_PlayerController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/NewMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/NewMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Enemy/Enemy.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/Pickup/Weapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/SPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UGDC/SPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SPlayerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/HUD/WB_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/HUD/WB_Enemy.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +187,8 @@
       <workItem from="1642651245414" duration="1146000" />
       <workItem from="1642659433613" duration="2536000" />
       <workItem from="1642732969519" duration="6373000" />
-      <workItem from="1642746315490" duration="8196000" />
+      <workItem from="1642746315490" duration="8917000" />
+      <workItem from="1642813596998" duration="264000" />
     </task>
     <servers />
   </component>

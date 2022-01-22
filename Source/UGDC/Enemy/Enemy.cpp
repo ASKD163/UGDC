@@ -175,7 +175,6 @@ void AEnemy::OnWeaponBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, A
 		ASCharacter* SCharacter = Cast<ASCharacter>(OtherActor);
 		if (SCharacter)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Hit"));
 			const FDamageEvent DamageEvent;
 
 			if (DamageType)
@@ -280,10 +279,8 @@ void AEnemy::Die()
 float AEnemy::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
                          AActor* DamageCauser)
 {
-	UE_LOG(LogTemp, Log, TEXT("B"));
 	if (Health > 0)
 	{
-		UE_LOG(LogTemp, Log, TEXT("A"));
 		Health = FMath::Clamp(Health - DamageAmount, 0.f, MaxHealth);
 		if (Health <= 0) Die();
 	}
