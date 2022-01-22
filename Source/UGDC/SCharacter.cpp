@@ -103,10 +103,9 @@ void ASCharacter::SetWeapon(AWeapon* Weapon)
 void ASCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	float Delta = StaminaDrainRate * DeltaTime;
+	const float Delta = StaminaDrainRate * DeltaTime;
 
-	if (SPlayerController && TargetEnemy)
-		SPlayerController->UpdateEnemyHealthBarPosition(TargetEnemy->GetActorLocation());
+	UpdateTarget();
 	
 	switch (CurrentState)
 	{
@@ -331,8 +330,7 @@ void ASCharacter::OnAttackSphereBeginOverlap(UPrimitiveComponent* OverlappedComp
 			AEnemy* Tmp = Cast<AEnemy>(OtherActor);
 			if (Tmp) TargetEnemy = Tmp;
 		}
-		if (SPlayerController)
-			SPlayerController->SetEnemyHealthBaeVisibility(TargetEnemy != nullptr);
+		UpdateTarget();
 	}
 
 }
@@ -345,8 +343,7 @@ void ASCharacter::OnAttackSphereEndOverlap(UPrimitiveComponent* OverlappedCompon
 		AEnemy* Tmp = Cast<AEnemy>(OtherActor);
 		if (Tmp == TargetEnemy) TargetEnemy = nullptr;
 	}
-	if (SPlayerController)
-		SPlayerController->SetEnemyHealthBaeVisibility(TargetEnemy != nullptr);
+	UpdateTarget();
 }
 
 float ASCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
@@ -364,6 +361,51 @@ void ASCharacter::DeadEnd()
 
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	//DisableInput(UGameplayStatics::GetPlayerController(this, 0));
+}
+
+void ASCharacter::UpdateTarget()
+{
+	if (TargetEnemy && TargetEnemy->MoveState != EMoveState::MS_Dead)
+	{
+		if (SPlayerController)
+			SPlayerController->UpdateEnemyHealthBarPosition(TargetEnemy->GetActorLocation());
+	}
+	else
+	{
+		if (EnemyFilter)
+		{
+			TArray<AActor*> OverlappingActors;
+			AttackSphere->GetOverlappingActors(OverlappingActors, EnemyFilter);
+			if (OverlappingActors.Num() > 0)
+			{
+				float MinDistance = 700.f;
+				AEnemy* TmpTarget = nullptr;
+				for (const auto OverlappingActor :OverlappingActors)
+				{
+					AEnemy* OverlappingEnemy = Cast<AEnemy>(OverlappingActor);
+					if (OverlappingEnemy && OverlappingEnemy->MoveState != EMoveState::MS_Dead)
+					{
+						const float Distance = FVector(GetActorLocation() - OverlappingEnemy->GetActorLocation()).Size();
+						if (Distance < MinDistance)
+						{
+							TmpTarget = OverlappingEnemy;
+							
+							//更新 MinDistance 以获取离玩家最近的Actor
+							MinDistance = Distance;
+						}
+					}
+				}
+				TargetEnemy = TmpTarget;
+			}
+			else
+			{
+				TargetEnemy = nullptr;
+			}
+		}
+	}
+
+	if (SPlayerController)
+		SPlayerController->SetEnemyHealthBaeVisibility(TargetEnemy != nullptr);
 }
 
 

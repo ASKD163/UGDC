@@ -30,6 +30,9 @@ AEnemy::AEnemy()
 	WeaponBox->SetCollisionResponseToAllChannels(ECR_Ignore);
 	WeaponBox->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 
+	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Camera, ECR_Ignore);
+	GetMesh()->SetCollisionResponseToChannel(ECC_Camera, ECR_Ignore);
+
 	MoveState = EMoveState::MS_Idle;
 
 	AttackInterval = 3.f;

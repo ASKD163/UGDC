@@ -25,7 +25,7 @@ AWeapon::AWeapon()
 	RotateSpeed = FRotator(0,180,0);
 
 	//Damage = 110;
-	Damage = 20;
+	Damage = 50;
 }
 
 void AWeapon::BeginPlay()

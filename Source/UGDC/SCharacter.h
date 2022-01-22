@@ -46,6 +46,10 @@ class UGDC_API ASCharacter : public ACharacter
 
 	UPROPERTY()
 	class ASPlayerController* SPlayerController;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<class AEnemy> EnemyFilter;
+	
 public:
 	// Sets default values for this character's properties
 	ASCharacter();
@@ -75,7 +79,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
 	bool bIsExhausted;
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	class AEnemy* TargetEnemy;
 	
 public:
@@ -155,4 +159,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void DeadEnd();
+
+	void UpdateTarget();
 };
