@@ -27,20 +27,29 @@ class UGDC_API ASPlayerController : public APlayerController
 	TSubclassOf<UUserWidget> PauseHUDAsset;
 
 	UPROPERTY()
-	UUserWidget* PauseHUD;
-
-	UPROPERTY()
 	bool bPause;
 	
 public:
+	UPROPERTY(BlueprintReadOnly)
+	UUserWidget* PauseHUD;
+	
 	virtual void BeginPlay() override;
-
+	
 	void SetEnemyHealthBarVisibility(bool Visible);
 
 	void UpdateEnemyHealthBarPosition(FVector Location);
 
+	UFUNCTION(BlueprintCallable)
 	void SetPauseUIVisibility(bool Visibility);
 
 	UFUNCTION(BlueprintCallable)
 	void TogglePause();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnPauseChangedBegin(bool bPaused);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnPauseChangedEnd(bool bPaused);
+
+	
 };

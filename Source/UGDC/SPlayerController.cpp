@@ -83,13 +83,15 @@ void ASPlayerController::SetPauseUIVisibility(bool Visibility)
 void ASPlayerController::TogglePause()
 {
 	bPause = !bPause;
-	UE_LOG(LogTemp, Error, TEXT("%d"), bPause)
 	bShowMouseCursor = bPause;
-	
+
+	//菜单出现时直接显示UI，消失时先播动画再隐藏UI
+	if (bPause) SetPauseUIVisibility(bPause);
+	OnPauseChangedBegin(bPause);
 	UGameplayStatics::SetGamePaused(this, bPause);
 	
 	if (!bPause) SetInputMode(FInputModeGameOnly());
 	
-	SetPauseUIVisibility(bPause);
+	//OnPauseChangedEnd(bPause);
 }
 
