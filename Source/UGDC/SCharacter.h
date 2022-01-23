@@ -161,4 +161,12 @@ public:
 	void DeadEnd();
 
 	void UpdateTarget();
+
+	UFUNCTION(BlueprintCallable)
+	void SaveGame();
+
+	UFUNCTION(BlueprintCallable)
+	void LoadGame();
+
+	void TogglePauseUI();
 };

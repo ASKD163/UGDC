@@ -33,7 +33,7 @@ void ANextLevelVolume::OnBoxComponentBeginOverlap(UPrimitiveComponent* Overlappe
 		ASCharacter* SCharacter = Cast<ASCharacter>(OtherActor);
 		if (SCharacter)
 		{
-			FName CurrentLevelName(GetWorld()->GetMapName());
+			const FName CurrentLevelName(GetWorld()->GetMapName());
 			if (CurrentLevelName != LevelName)
 				UGameplayStatics::OpenLevel(GetWorld(), LevelName);
 		}

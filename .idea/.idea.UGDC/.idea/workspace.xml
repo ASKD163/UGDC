@@ -6,16 +6,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f3b6ca-cdac-4d24-8d23-cc3f410a93dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Maps/Level1.umap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Maps/Level1_BuiltData.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Maps/Level2.umap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Maps/Level2_BuiltData.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Maps/Template_Default.umap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UGDC/NextLevelVolume.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UGDC/NextLevelVolume.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/HUD/WB_Pause.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/MySaveGame.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UGDC/MySaveGame.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UGDC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/NewMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/NewMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/NewMap_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/NewMap_BuiltData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_Character.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BluePrints/BP_PlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BluePrints/BP_PlayerController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Level1.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/NextLevelVolume.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/NextLevelVolume.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/SPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UGDC/SPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UGDC/SPlayerController.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +199,10 @@
       <workItem from="1642659433613" duration="2536000" />
       <workItem from="1642732969519" duration="6373000" />
       <workItem from="1642746315490" duration="8917000" />
-      <workItem from="1642813596998" duration="10616000" />
+      <workItem from="1642813596998" duration="14132000" />
+      <workItem from="1642855220273" duration="754000" />
+      <workItem from="1642859326883" duration="750000" />
+      <workItem from="1642901757906" duration="12169000" />
     </task>
     <servers />
   </component>
@@ -220,16 +226,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Source/UGDC/SPlayerController.cpp</url>
-          <line>3</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

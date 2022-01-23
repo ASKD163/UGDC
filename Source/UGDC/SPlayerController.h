@@ -20,13 +20,27 @@ class UGDC_API ASPlayerController : public APlayerController
 	UPROPERTY(EditDefaultsOnly, Category = "UI")
 	TSubclassOf<UUserWidget> EnemyHUDAsset;
 
+	UPROPERTY()
 	UUserWidget* EnemyHUD;
+
+	UPROPERTY(EditDefaultsOnly, Category = "UI")
+	TSubclassOf<UUserWidget> PauseHUDAsset;
+
+	UPROPERTY()
+	UUserWidget* PauseHUD;
+
+	UPROPERTY()
+	bool bPause;
 	
 public:
 	virtual void BeginPlay() override;
 
-	void SetEnemyHealthBaeVisibility(bool Visible);
+	void SetEnemyHealthBarVisibility(bool Visible);
 
 	void UpdateEnemyHealthBarPosition(FVector Location);
-	
+
+	void SetPauseUIVisibility(bool Visibility);
+
+	UFUNCTION(BlueprintCallable)
+	void TogglePause();
 };

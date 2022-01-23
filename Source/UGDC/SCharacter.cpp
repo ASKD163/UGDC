@@ -3,6 +3,7 @@
 
 #include "SCharacter.h"
 
+#include "MySaveGame.h"
 #include "SPlayerController.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -165,6 +166,9 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ASCharacter::OnInteract);
 	PlayerInputComponent->BindAction("Click", IE_Pressed, this, &ASCharacter::OnClickBegin);
 	PlayerInputComponent->BindAction("Click", IE_Released, this, &ASCharacter::OnClickEnd);
+	PlayerInputComponent->BindAction("ToggleVisibility", IE_Pressed, this, &ASCharacter::TogglePauseUI).
+	                      bExecuteWhenPaused = true;
+
 	
 }
 
@@ -405,7 +409,51 @@ void ASCharacter::UpdateTarget()
 	}
 
 	if (SPlayerController)
-		SPlayerController->SetEnemyHealthBaeVisibility(TargetEnemy != nullptr);
+		SPlayerController->SetEnemyHealthBarVisibility(TargetEnemy != nullptr);
+}
+
+void ASCharacter::SaveGame()
+{
+	UMySaveGame* SaveGameInstance = Cast<UMySaveGame>(UGameplayStatics::CreateSaveGameObject(UMySaveGame::StaticClass()));
+	if (SaveGameInstance)
+	{
+		SaveGameInstance->PlayerSlot.Coins = Coins;
+		SaveGameInstance->PlayerSlot.MaxHealth = MaxHealth;
+		SaveGameInstance->PlayerSlot.Stamina = MaxStamina;
+
+		if (EquippedWeapon)
+		{
+			SaveGameInstance->WeaponClass = EquippedWeapon->GetClass();
+		}
+		UGameplayStatics::SaveGameToSlot(SaveGameInstance, FString("A"), 0);
+	}
+}
+
+void ASCharacter::LoadGame()
+{
+	if (UGameplayStatics::DoesSaveGameExist("A", 0))
+	{
+		UMySaveGame* SaveGameInstance = Cast<UMySaveGame>(UGameplayStatics::LoadGameFromSlot("A", 0));
+		if (SaveGameInstance)
+		{
+			Coins = SaveGameInstance->PlayerSlot.Coins;
+			MaxHealth = SaveGameInstance->PlayerSlot.MaxHealth;
+			MaxStamina = SaveGameInstance->PlayerSlot.Stamina;
+
+			if (SaveGameInstance->WeaponClass)
+			{
+				AWeapon* Weapon = Cast<AWeapon>(GetWorld()->SpawnActor(SaveGameInstance->WeaponClass));
+				Weapon->Equip(this);
+			}
+		}
+	}
+}
+
+void ASCharacter::TogglePauseUI()
+{
+	UE_LOG(LogTemp, Warning, TEXT("A"))
+	if (SPlayerController)
+		SPlayerController->TogglePause();
 }
 
 

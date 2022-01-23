@@ -4,11 +4,12 @@
 #include "SPlayerController.h"
 
 #include "Blueprint/UserWidget.h"
+#include "Kismet/GameplayStatics.h"
 
 void ASPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	if (HUDAsset)
 	{
 		UUserWidget* HUD = CreateWidget<UUserWidget>(this, HUDAsset);
@@ -22,9 +23,18 @@ void ASPlayerController::BeginPlay()
 		EnemyHUD->AddToViewport();
 		EnemyHUD->SetVisibility(ESlateVisibility::Hidden);
 	}
+
+	if (PauseHUDAsset)
+	{
+		PauseHUD = CreateWidget<UUserWidget>(this, PauseHUDAsset);
+		PauseHUD->AddToViewport();
+		PauseHUD->SetVisibility(ESlateVisibility::Hidden);
+	}
+
+	bPause = false;
 }
 
-void ASPlayerController::SetEnemyHealthBaeVisibility(bool Visible)
+void ASPlayerController::SetEnemyHealthBarVisibility(bool Visible)
 {
 	if (EnemyHUD)
 	{
@@ -52,5 +62,34 @@ void ASPlayerController::UpdateEnemyHealthBarPosition(FVector Location)
 		EnemyHUD->SetPositionInViewport(ScreenLocation);
 		EnemyHUD->SetDesiredSizeInViewport(Size);
 	}
+}
+
+void ASPlayerController::SetPauseUIVisibility(bool Visibility)
+{
+	if (PauseHUD)
+	{
+
+		if (Visibility)
+		{
+			PauseHUD->SetVisibility(ESlateVisibility::Visible);
+		}
+		else
+		{
+			PauseHUD->SetVisibility(ESlateVisibility::Hidden);
+		}
+	}
+}
+
+void ASPlayerController::TogglePause()
+{
+	bPause = !bPause;
+	UE_LOG(LogTemp, Error, TEXT("%d"), bPause)
+	bShowMouseCursor = bPause;
+	
+	UGameplayStatics::SetGamePaused(this, bPause);
+	
+	if (!bPause) SetInputMode(FInputModeGameOnly());
+	
+	SetPauseUIVisibility(bPause);
 }
 
